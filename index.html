@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav id="navbar">
+        <div class="navlogo" id="navlogo">
+            <img src="https://thumbs.dreamstime.com/b/shopping-logo-letter-s-concept-204397380.jpg" alt="logo">
+            <h2>Shopaz</h2>
+        </div>
+        <div>
+            <ul id="navlist">
+                <li>Login</li>
+                <li>Signup</li>
+                <li>Cart</li>
+            </ul>
+        </div>
+        
+
+    </nav>
+    <div class="dropdown">
+        <label for="sort">Sort:</label>
+        <select name="sort" id="sortBy" title="Sort by">Sort By
+            <option disabled selected>Sort By</option>
+            <option value="asc">Price:Low to High</option>
+            <option value="desc">Price:High to Low</option>
+        </select>
+        <label for="filter" style="margin-left: 5%;">Filter:</label>
+        <select name="filter" id="filter" title="filter by">Sort By
+            <option disabled selected>Category</option>
+            <option value="1">Category 1</option>
+            <option value="2">Category 2</option>
+            <option value="3">Category 3</option>
+            <option value="4">Category 4</option>
+            
+        </select>
+    </div>
+   
+
+    <div id="container">
+      
+
+    </div>
+
+    <div id="loadingIndicator" style="display: none;"></div>
+    <script src="script.js"></script>
+</body>
+</html>
