@@ -17,10 +17,15 @@ async function fetchData(Url,queryParams=""){
     try {
         showLoadingIndicator();
         let res = await fetch(`${Url}?${queryParams}`)
+        let count= res.headers.get("X-Total-Count")
+        console.log(count)
+        // console.log(res)
         let data = await res.json()
         console.log(data)
+
         renderProducts(data)
         hideLoadingIndicator();
+        pagination(count,5,queryParams)
 
     } catch (error) {
         console.log(error)
@@ -28,7 +33,7 @@ async function fetchData(Url,queryParams=""){
    
 }
 
-fetchData(`${url}`)
+fetchData(`${url}?_page=1&_limit=5`)
 
 function renderProducts(data){
     if(!Array.isArray(data)){
@@ -145,3 +150,39 @@ filter.addEventListener('change',(e)=>{
         fetchData(`${url}`,`category=cat4`)
     }
 })
+
+// #pagnation
+let paginationWrapper = document.getElementById("pagination-wrapper")
+
+// function pagination(total,limit,queryParams){
+//     let totalButtons = Math.ceil(total/limit);
+//     paginationWrapper.innerHTML="";
+
+//     for(let i=1; i<totalButtons;i++){
+//         let button = document.createElement('button')
+//         button.innerText = i;
+
+//         button.addEventListener('click',(e)=>{
+//             container.innerHTML="";
+//             fetchData(`${url}?_page=${i}&_limit=5`,queryParams)
+//         })
+        
+//         paginationWrapper.append(button)
+//     }
+// }
+function pagination(total, limit, queryParams) {
+    let totalButtons = Math.ceil(total / limit);
+    paginationWrapper.innerHTML = "";
+    for (let i = 1; i <= totalButtons; i++) {
+        let button = document.createElement('button');
+        button.innerText = i;
+        button.className="page-btn"
+
+        button.addEventListener('click', (e) => {
+            container.innerHTML=""
+            fetchData(`${url}?_page=${i}&_limit=5`, queryParams);
+        });
+
+        paginationWrapper.append(button);
+    }
+}
