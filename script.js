@@ -1,5 +1,5 @@
 let container = document.getElementById("container")
-let loading = document.getElementById("loadingIndicator")
+// let loading = document.getElementById("loadingIndicator")
 
 function showLoadingIndicator() {
     const loadingIndicator = document.getElementById('loadingIndicator');
@@ -55,14 +55,7 @@ function renderProducts(data){
         
         const button = document.createElement('button')
 
-        // const productImage = item.images[0]
-        // console.log(productImage)
-    //    productImage.map((imgUrl)=>{
-    //     const image = document.createElement('img')
-    //     image.src = imgUrl
-    //     console.log(imgUrl)
-    //     card.appendChild(image)
-    //    })
+
     const image = document.createElement('img')
     image.className  = "image"
     image.src = item.images[0]
@@ -103,16 +96,7 @@ function renderProducts(data){
 
 }
 
-// async function fetchProductDetails(productId) {
-//     try {
-//         const res = await fetch(`https://json-server-ew0w.onrender.com/products/${productId}`);
-//         const productDetails = await res.json()
-//         console.log(productDetails)
 
-//     } catch (error) {
-//         console.log(error)
-//     }
-// }
 
 let sort = document.getElementById('sortBy')
 
@@ -147,29 +131,14 @@ filter.addEventListener('change',(e)=>{
     }
     else if (selectValue === '4') {
         container.innerHTML = "";
-        fetchData(`${url}`,`category=cat4`)
+        fetchData(`${url}`,`_category=cat4`)
     }
 })
 
 // #pagnation
 let paginationWrapper = document.getElementById("pagination-wrapper")
 
-// function pagination(total,limit,queryParams){
-//     let totalButtons = Math.ceil(total/limit);
-//     paginationWrapper.innerHTML="";
 
-//     for(let i=1; i<totalButtons;i++){
-//         let button = document.createElement('button')
-//         button.innerText = i;
-
-//         button.addEventListener('click',(e)=>{
-//             container.innerHTML="";
-//             fetchData(`${url}?_page=${i}&_limit=5`,queryParams)
-//         })
-        
-//         paginationWrapper.append(button)
-//     }
-// }
 function pagination(total, limit, queryParams) {
     let totalButtons = Math.ceil(total / limit);
     paginationWrapper.innerHTML = "";
@@ -186,3 +155,35 @@ function pagination(total, limit, queryParams) {
         paginationWrapper.append(button);
     }
 }
+
+// #theme
+
+const theme = document.getElementById('theme')
+
+theme.addEventListener('click',(e)=>{
+    if(theme.innerHTML==='Dark'){
+        theme.innerHTML='Light'
+        document.body.style.background=('black')
+        document.body.style.color=('white')
+    }
+    else{
+        theme.innerHTML='Dark'
+        document.body.style.background=('white')
+        document.body.style.color=('black')
+    }
+    
+    
+})
+
+// #menu
+let navMenu = document.getElementById('nav-menu')
+let navList = document.getElementById('navlist');
+
+navMenu.addEventListener('click',(e)=>{
+    if(navList.style.display==='none'){
+        navList.style.display='flex';
+    }
+    else{
+        navList.style.display='none';
+    }
+})

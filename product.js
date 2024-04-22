@@ -4,7 +4,7 @@ homepage.addEventListener('click', () => {
     window.location.href = "index.html"
 })
 
-let loading = document.getElementById("loadingIndicator")
+
 function showLoadingIndicator() {
     const loadingIndicator = document.getElementById('loadingIndicator');
     loadingIndicator.style.display = 'block';

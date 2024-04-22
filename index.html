@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        
 </head>
+
 <body>
     <nav id="navbar">
         <div class="navlogo" id="navlogo">
@@ -13,13 +18,16 @@
             <h2>Shopaz</h2>
         </div>
         <div>
-            <ul id="navlist">
+            <ul id="navlist" class="navlist">
                 <li>Login</li>
                 <li>Signup</li>
                 <li>Cart</li>
+                <li id="theme">Dark</li>
             </ul>
+            <span class="material-symbols-outlined" id="nav-menu"> menu</span>
+            
         </div>
-        
+
 
     </nav>
     <div class="dropdown">
@@ -36,15 +44,18 @@
             <option value="2">Category 2</option>
             <option value="3">Category 3</option>
             <option value="4">Category 4</option>
-            
+
         </select>
     </div>
-   
 
-    <div id="container"></div>
-    <div class="pagination-wrapper" id="pagination-wrapper"></div>
+    <div class="mainBody">
+        <div id="container"></div>
+        <div class="pagination-wrapper" id="pagination-wrapper"></div>
+    </div>
+
 
     <div id="loadingIndicator" style="display: none;"></div>
     <script src="script.js"></script>
 </body>
+
 </html>
